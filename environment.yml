@@ -1,0 +1,4 @@
+name: gamma_transforms_environment
+dependencies:
+  - pip:
+    - matplotlib
