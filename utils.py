@@ -41,3 +41,14 @@ def write_json(data_dict, destination):
     f.close()
 
 
+def get_json(path):
+    """ retrieves json file from disk and saves it as a dict """
+
+    f = open(path, 'r')
+    profiles_dict = json.load(f)
+
+    return profiles_dict
+
+data = get_json('data/ocio_aces.json')
+
+print data
