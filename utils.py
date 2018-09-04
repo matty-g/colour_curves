@@ -3,6 +3,7 @@ using Nuke to sample and retrieve the data
 """
 
 import nuke
+import json
 
 
 def get_sampled_data(node):
@@ -17,7 +18,26 @@ def get_sampled_data(node):
             colour_idx = chans.index(colour)
             results[colour] = node.knob('intensitydata').getValueAt(i, colour_idx)
         frames[i] = results
-    node_dict[name] = frames
+    node_dict[name.strip()] = frames
 
     return node_dict
+
+
+def retrieve_data():
+    data = {}
+    for node in nuke.selectedNodes():
+        result = get_sampled_data(node)
+        for key, value in result.iteritems():
+            data[key] = value
+
+    return data
+
+
+def write_json(data_dict, destination):
+    """ write a dict out to disk as json data """
+    json_file = json.dumps(data_dict)
+    f = open(destination, 'w')
+    f.write(json_file)
+    f.close()
+
 
