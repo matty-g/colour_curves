@@ -19,6 +19,9 @@ class Profile(object):
             result.append(self._curves[str(sample)][channel])
         return result
 
+    def getName(self):
+        return self._name
+
 
 def get_json(path):
     """ retrieves json file from disk and saves it as a dict """
