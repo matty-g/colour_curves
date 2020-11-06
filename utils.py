@@ -12,7 +12,7 @@ def get_sampled_data(node):
     node_dict = {}
     chans = ['r', 'g', 'b']
     frames = {}
-    for i in range(1, 257):
+    for i in range(0, 256):
         results = {}
         for colour in chans:
             colour_idx = chans.index(colour)
