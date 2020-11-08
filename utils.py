@@ -48,7 +48,7 @@ def get_json(path):
     profiles_dict = json.load(f)
 
     return profiles_dict
-
-data = get_json('data/ocio_aces.json')
-
-print data
+#
+# data = get_json('data/ocio_aces.json')
+#
+# print data

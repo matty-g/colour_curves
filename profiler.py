@@ -8,14 +8,14 @@ class Profile(object):
         self._curves = profile_dict[self._name]
         self._samples = len(self._curves)
 
-        # print self._name
-        # print self._curves
-        # print self._samples
+        print self._name
+        print self._curves
+        print self._samples
 
     def getCurveForChannel(self, channel='r'):
         """ returns an ordered list of samples @ time """
         result = []
-        for sample in range (1, self._samples + 1):
+        for sample in range(0, self._samples):
             result.append(self._curves[str(sample)][channel])
         return result
 
@@ -31,6 +31,6 @@ def get_json(path):
 
     return profiles_dict
 
-data = get_json('data/ocio_aces.json')
+# data = get_json('data/ocio_aces.json')
 
 
